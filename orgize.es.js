@@ -276,133 +276,133 @@ async function init(input) {
     imports.wbg.__wbindgen_object_drop_ref = function(arg0) {
         takeObject(arg0);
     };
-    imports.wbg.__wbg_text_eacff116c9d25ba8 = function(arg0, arg1) {
+    imports.wbg.__wbg_text_9d7be88cb9d0e993 = function(arg0, arg1) {
         getObject(arg0).text(takeObject(arg1));
     };
-    imports.wbg.__wbg_code_e45603f3a3acee2a = function(arg0, arg1) {
+    imports.wbg.__wbg_code_bb5df0e20028d1b4 = function(arg0, arg1) {
         getObject(arg0).code(takeObject(arg1));
     };
-    imports.wbg.__wbg_cookie_943df2cebda5c7a8 = function(arg0, arg1) {
+    imports.wbg.__wbg_cookie_c40e503c71995ccf = function(arg0, arg1) {
         getObject(arg0).cookie(takeObject(arg1));
     };
-    imports.wbg.__wbg_rule_ac41d4408306cf75 = function(arg0) {
+    imports.wbg.__wbg_rule_c48ea58e05284f0a = function(arg0) {
         getObject(arg0).rule();
     };
-    imports.wbg.__wbg_exampleBlock_e460f258fb69dfec = function(arg0, arg1) {
+    imports.wbg.__wbg_exampleBlock_79db13bf5ce41758 = function(arg0, arg1) {
         getObject(arg0).exampleBlock(takeObject(arg1));
     };
-    imports.wbg.__wbg_exportBlock_7ed0259a4ddea1d9 = function(arg0, arg1) {
+    imports.wbg.__wbg_exportBlock_f4da62ce962cdc72 = function(arg0, arg1) {
         getObject(arg0).exportBlock(takeObject(arg1));
     };
-    imports.wbg.__wbg_sourceBlock_64dd33fe62a8f8b9 = function(arg0, arg1) {
+    imports.wbg.__wbg_sourceBlock_d66de695a8ba6a28 = function(arg0, arg1) {
         getObject(arg0).sourceBlock(takeObject(arg1));
     };
-    imports.wbg.__wbg_inlineSrc_8ad2df61ac224eb5 = function(arg0, arg1) {
+    imports.wbg.__wbg_inlineSrc_612eb06e9a588764 = function(arg0, arg1) {
         getObject(arg0).inlineSrc(takeObject(arg1));
     };
-    imports.wbg.__wbg_link_f96455b6a98eaa03 = function(arg0, arg1) {
+    imports.wbg.__wbg_link_aea6fc46604ae21a = function(arg0, arg1) {
         getObject(arg0).link(takeObject(arg1));
     };
-    imports.wbg.__wbg_snippet_a49f8efa760ef01b = function(arg0, arg1) {
+    imports.wbg.__wbg_snippet_051b7a269fe830d3 = function(arg0, arg1) {
         getObject(arg0).snippet(takeObject(arg1));
     };
-    imports.wbg.__wbg_timestamp_868efb2143b7bdf4 = function(arg0, arg1) {
+    imports.wbg.__wbg_timestamp_0be7b46dee608dc7 = function(arg0, arg1) {
         getObject(arg0).timestamp(takeObject(arg1));
     };
-    imports.wbg.__wbg_verbatim_c258bc8e42db19eb = function(arg0, arg1) {
+    imports.wbg.__wbg_verbatim_5fa7a8bf6797d799 = function(arg0, arg1) {
         getObject(arg0).verbatim(takeObject(arg1));
     };
-    imports.wbg.__wbg_fixedWidth_1015e088ef6b56bb = function(arg0, arg1) {
+    imports.wbg.__wbg_fixedWidth_7cfbc61dd4893d59 = function(arg0, arg1) {
         getObject(arg0).fixedWidth(takeObject(arg1));
     };
-    imports.wbg.__wbg_keyword_97ccd9b6a4b3884f = function(arg0, arg1) {
+    imports.wbg.__wbg_keyword_9880bffc52b1f72e = function(arg0, arg1) {
         getObject(arg0).keyword(takeObject(arg1));
     };
-    imports.wbg.__wbg_listStart_ee1ded474089edf2 = function(arg0, arg1) {
+    imports.wbg.__wbg_listStart_4fc5893ef927c6af = function(arg0, arg1) {
         getObject(arg0).listStart(takeObject(arg1));
     };
-    imports.wbg.__wbg_listEnd_e0fc45e17135b70f = function(arg0, arg1) {
+    imports.wbg.__wbg_listEnd_56585dd32218ccac = function(arg0, arg1) {
         getObject(arg0).listEnd(takeObject(arg1));
     };
-    imports.wbg.__wbg_tableStart_b36b0eac7e17a037 = function(arg0, arg1) {
+    imports.wbg.__wbg_tableStart_ecb632f749e1843a = function(arg0, arg1) {
         getObject(arg0).tableStart(takeObject(arg1));
     };
-    imports.wbg.__wbg_tableRowStart_ea2e2a7f3b971d69 = function(arg0, arg1) {
+    imports.wbg.__wbg_tableRowStart_07c7f9e025d8d435 = function(arg0, arg1) {
         getObject(arg0).tableRowStart(takeObject(arg1));
     };
-    imports.wbg.__wbg_tableCellStart_4423a32b1f5a97d0 = function(arg0, arg1) {
+    imports.wbg.__wbg_tableCellStart_c60848b19baf111d = function(arg0, arg1) {
         getObject(arg0).tableCellStart(takeObject(arg1));
     };
-    imports.wbg.__wbg_titleStart_ce36a39a869d08d2 = function(arg0, arg1) {
+    imports.wbg.__wbg_titleStart_7ae650910466668c = function(arg0, arg1) {
         getObject(arg0).titleStart(takeObject(arg1));
     };
-    imports.wbg.__wbg_titleEnd_daf13a6df95fbc8b = function(arg0, arg1) {
+    imports.wbg.__wbg_titleEnd_8e7c66a7cd410da6 = function(arg0, arg1) {
         getObject(arg0).titleEnd(takeObject(arg1));
     };
-    imports.wbg.__wbg_boldStart_1462cf63d407a12a = function(arg0) {
+    imports.wbg.__wbg_boldStart_a570a541eee54a04 = function(arg0) {
         getObject(arg0).boldStart();
     };
-    imports.wbg.__wbg_boldEnd_f33c5ee18910ac17 = function(arg0) {
+    imports.wbg.__wbg_boldEnd_e9de72bd9d6d67aa = function(arg0) {
         getObject(arg0).boldEnd();
     };
-    imports.wbg.__wbg_centerBlockStart_be814e1757e98e33 = function(arg0, arg1) {
+    imports.wbg.__wbg_centerBlockStart_f3b607811bf7c15a = function(arg0, arg1) {
         getObject(arg0).centerBlockStart(takeObject(arg1));
     };
-    imports.wbg.__wbg_centerBlockEnd_cce6890e20c8cc89 = function(arg0, arg1) {
+    imports.wbg.__wbg_centerBlockEnd_c28d268ed13c8d99 = function(arg0, arg1) {
         getObject(arg0).centerBlockEnd(takeObject(arg1));
     };
-    imports.wbg.__wbg_documentStart_8c884703472d0e01 = function(arg0) {
+    imports.wbg.__wbg_documentStart_ead3479098bdf3cd = function(arg0) {
         getObject(arg0).documentStart();
     };
-    imports.wbg.__wbg_documentEnd_ce7d040e2346a0b8 = function(arg0) {
+    imports.wbg.__wbg_documentEnd_835258edd09a2073 = function(arg0) {
         getObject(arg0).documentEnd();
     };
-    imports.wbg.__wbg_italicStart_fabeda64fcb0f22f = function(arg0) {
+    imports.wbg.__wbg_italicStart_098d845d576cfe4d = function(arg0) {
         getObject(arg0).italicStart();
     };
-    imports.wbg.__wbg_italicEnd_f128bacddc013616 = function(arg0) {
+    imports.wbg.__wbg_italicEnd_a26a9f1a03504572 = function(arg0) {
         getObject(arg0).italicEnd();
     };
-    imports.wbg.__wbg_listItemStart_3c84e38a02d1ef18 = function(arg0) {
+    imports.wbg.__wbg_listItemStart_f7e3e45d4064122a = function(arg0) {
         getObject(arg0).listItemStart();
     };
-    imports.wbg.__wbg_listItemEnd_156a647d0cdc2e03 = function(arg0) {
+    imports.wbg.__wbg_listItemEnd_e5d5d202169afbc4 = function(arg0) {
         getObject(arg0).listItemEnd();
     };
-    imports.wbg.__wbg_paragraphStart_c3ae3baa5665b2a9 = function(arg0) {
+    imports.wbg.__wbg_paragraphStart_0911d346fe2f0aa8 = function(arg0) {
         getObject(arg0).paragraphStart();
     };
-    imports.wbg.__wbg_paragraphEnd_ad1d24ec846ba612 = function(arg0) {
+    imports.wbg.__wbg_paragraphEnd_7e3be6d14519b8f9 = function(arg0) {
         getObject(arg0).paragraphEnd();
     };
-    imports.wbg.__wbg_quoteBlockStart_b814f62e6482f863 = function(arg0, arg1) {
+    imports.wbg.__wbg_quoteBlockStart_a85d3fbaae8ddcab = function(arg0, arg1) {
         getObject(arg0).quoteBlockStart(takeObject(arg1));
     };
-    imports.wbg.__wbg_quoteBlockEnd_9f564ef62668ea65 = function(arg0, arg1) {
+    imports.wbg.__wbg_quoteBlockEnd_924f13342cf61145 = function(arg0, arg1) {
         getObject(arg0).quoteBlockEnd(takeObject(arg1));
     };
-    imports.wbg.__wbg_sectionStart_4d0c540ce85405fe = function(arg0) {
+    imports.wbg.__wbg_sectionStart_21c356e55c1979de = function(arg0) {
         getObject(arg0).sectionStart();
     };
-    imports.wbg.__wbg_sectionEnd_2fdf5e3465afc5c8 = function(arg0) {
+    imports.wbg.__wbg_sectionEnd_ebd85494219048b3 = function(arg0) {
         getObject(arg0).sectionEnd();
     };
-    imports.wbg.__wbg_strikeStart_b2e30a41e703c645 = function(arg0) {
+    imports.wbg.__wbg_strikeStart_bb876a13c23ae4a0 = function(arg0) {
         getObject(arg0).strikeStart();
     };
-    imports.wbg.__wbg_strikeEnd_8337d6b00a8d0a93 = function(arg0) {
+    imports.wbg.__wbg_strikeEnd_b27d2e51423382b0 = function(arg0) {
         getObject(arg0).strikeEnd();
     };
-    imports.wbg.__wbg_underlineStart_eebbb65f73a5f054 = function(arg0) {
+    imports.wbg.__wbg_underlineStart_061a7650f74f999d = function(arg0) {
         getObject(arg0).underlineStart();
     };
-    imports.wbg.__wbg_underlineEnd_95548b86e2129147 = function(arg0) {
+    imports.wbg.__wbg_underlineEnd_9d755ffb65c1f633 = function(arg0) {
         getObject(arg0).underlineEnd();
     };
-    imports.wbg.__wbg_verseBlockStart_3bb89682290dd549 = function(arg0, arg1) {
+    imports.wbg.__wbg_verseBlockStart_5810dffbfb567d87 = function(arg0, arg1) {
         getObject(arg0).verseBlockStart(takeObject(arg1));
     };
-    imports.wbg.__wbg_verseBlockEnd_2960a8b4021c7abf = function(arg0, arg1) {
+    imports.wbg.__wbg_verseBlockEnd_750d8dfa93c5b0ab = function(arg0, arg1) {
         getObject(arg0).verseBlockEnd(takeObject(arg1));
     };
     imports.wbg.__wbindgen_string_new = function(arg0, arg1) {
