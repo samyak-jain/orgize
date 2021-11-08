@@ -8,7 +8,7 @@
     <script defer src="https://unpkg.com/alpinejs@3/dist/cdn.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.14.0/beautify-html.js"></script>
 
-    <script src="/orgize.umd.js"></script>
+    <script src="./orgize.umd.js"></script>
     <style>
       h3 {
         margin: 0;
@@ -21,7 +21,7 @@
   </head>
   <body
     x-data="{ loaded: false, org: '* Hello, /world/!', type: 'json' }"
-    x-init="orgize.init('/orgize_bg.wasm').then(() => loaded = true)"
+    x-init="orgize.init('./orgize_bg.wasm').then(() => loaded = true)"
   >
     <h2>Orgize wasm demo</h2>
 
