@@ -12,13 +12,12 @@ use crate::elements::Element;
 use crate::parse::combinators::{blank_lines_count, line};
 
 /// Keyword Element
-#[cfg_attr(test, derive(PartialEq))]
-#[cfg_attr(feature = "ser", derive(serde::Serialize))]
-#[derive(Debug, Clone)]
+#[cfg_attr(feature = "ser", derive(serde::Serialize, serde::Deserialize))]
+#[derive(Debug, Clone, PartialEq)]
 pub struct Keyword<'a> {
     /// Keyword name
     pub key: Cow<'a, str>,
-    #[cfg_attr(feature = "ser", serde(skip_serializing_if = "Option::is_none"))]
+    #[cfg_attr(feature = "ser", serde(skip))]
     pub optional: Option<Cow<'a, str>>,
     /// Keyword value
     pub value: Cow<'a, str>,
@@ -39,9 +38,8 @@ impl Keyword<'_> {
 }
 
 /// Babel Call Element
-#[derive(Debug, Clone)]
-#[cfg_attr(test, derive(PartialEq))]
-#[cfg_attr(feature = "ser", derive(serde::Serialize))]
+#[derive(Debug, Clone, PartialEq)]
+#[cfg_attr(feature = "ser", derive(serde::Serialize, serde::Deserialize))]
 pub struct BabelCall<'a> {
     /// Babel call value
     pub value: Cow<'a, str>,

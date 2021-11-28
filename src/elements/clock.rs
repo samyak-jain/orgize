@@ -12,10 +12,9 @@ use crate::elements::timestamp::{parse_inactive, Datetime, Timestamp};
 use crate::parse::combinators::{blank_lines_count, eol};
 
 /// Clock Element
-#[cfg_attr(test, derive(PartialEq))]
-#[cfg_attr(feature = "ser", derive(serde::Serialize))]
+#[cfg_attr(feature = "ser", derive(serde::Serialize, serde::Deserialize))]
 #[cfg_attr(feature = "ser", serde(untagged))]
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, PartialEq)]
 pub enum Clock<'a> {
     /// Closed Clock
     Closed {
@@ -23,9 +22,9 @@ pub enum Clock<'a> {
         start: Datetime<'a>,
         /// Time end
         end: Datetime<'a>,
-        #[cfg_attr(feature = "ser", serde(skip_serializing_if = "Option::is_none"))]
+        #[cfg_attr(feature = "ser", serde(skip))]
         repeater: Option<Cow<'a, str>>,
-        #[cfg_attr(feature = "ser", serde(skip_serializing_if = "Option::is_none"))]
+        #[cfg_attr(feature = "ser", serde(skip))]
         delay: Option<Cow<'a, str>>,
         /// Clock duration
         duration: Cow<'a, str>,
@@ -37,9 +36,9 @@ pub enum Clock<'a> {
     Running {
         /// Time start
         start: Datetime<'a>,
-        #[cfg_attr(feature = "ser", serde(skip_serializing_if = "Option::is_none"))]
+        #[cfg_attr(feature = "ser", serde(skip))]
         repeater: Option<Cow<'a, str>>,
-        #[cfg_attr(feature = "ser", serde(skip_serializing_if = "Option::is_none"))]
+        #[cfg_attr(feature = "ser", serde(skip))]
         delay: Option<Cow<'a, str>>,
         /// Numbers of blank lines between the clock line and next non-blank
         /// line or buffer's end

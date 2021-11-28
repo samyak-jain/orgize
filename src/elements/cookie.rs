@@ -10,9 +10,8 @@ use nom::{
 };
 
 /// Statistics Cookie Object
-#[cfg_attr(test, derive(PartialEq))]
-#[cfg_attr(feature = "ser", derive(serde::Serialize))]
-#[derive(Debug, Clone)]
+#[cfg_attr(feature = "ser", derive(serde::Serialize, serde::Deserialize))]
+#[derive(Debug, Clone, PartialEq)]
 pub struct Cookie<'a> {
     /// Full cookie value
     pub value: Cow<'a, str>,

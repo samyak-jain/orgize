@@ -8,19 +8,18 @@ use nom::{
 };
 
 /// Inline Babel Call Object
-#[cfg_attr(test, derive(PartialEq))]
-#[cfg_attr(feature = "ser", derive(serde::Serialize))]
-#[derive(Debug, Default, Clone)]
+#[cfg_attr(feature = "ser", derive(serde::Serialize, serde::Deserialize))]
+#[derive(Debug, Default, Clone, PartialEq)]
 pub struct InlineCall<'a> {
     /// Called code block name
     pub name: Cow<'a, str>,
     /// Header arguments applied to the code block
-    #[cfg_attr(feature = "ser", serde(skip_serializing_if = "Option::is_none"))]
+    #[cfg_attr(feature = "ser", serde(skip))]
     pub inside_header: Option<Cow<'a, str>>,
     /// Argument passed to the code block
     pub arguments: Cow<'a, str>,
     /// Header arguments applied to the calling instance
-    #[cfg_attr(feature = "ser", serde(skip_serializing_if = "Option::is_none"))]
+    #[cfg_attr(feature = "ser", serde(skip))]
     pub end_header: Option<Cow<'a, str>>,
 }
 

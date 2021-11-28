@@ -56,8 +56,8 @@ pub use self::{
 use std::borrow::Cow;
 
 /// Element Enum
-#[derive(Debug)]
-#[cfg_attr(feature = "ser", derive(serde::Serialize))]
+#[derive(Debug, PartialEq)]
+#[cfg_attr(feature = "ser", derive(serde::Serialize, serde::Deserialize))]
 #[cfg_attr(feature = "ser", serde(tag = "type", rename_all = "kebab-case"))]
 pub enum Element<'a> {
     SpecialBlock(SpecialBlock<'a>),

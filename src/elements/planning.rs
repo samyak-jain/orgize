@@ -4,17 +4,17 @@ use crate::elements::Timestamp;
 
 /// Planning element
 #[cfg_attr(test, derive(PartialEq))]
-#[cfg_attr(feature = "ser", derive(serde::Serialize))]
+#[cfg_attr(feature = "ser", derive(serde::Serialize, serde::Deserialize))]
 #[derive(Debug, Clone)]
 pub struct Planning<'a> {
     /// Timestamp associated to deadline keyword
-    #[cfg_attr(feature = "ser", serde(skip_serializing_if = "Option::is_none"))]
+    #[cfg_attr(feature = "ser", serde(skip))]
     pub deadline: Option<Timestamp<'a>>,
     /// Timestamp associated to scheduled keyword
-    #[cfg_attr(feature = "ser", serde(skip_serializing_if = "Option::is_none"))]
+    #[cfg_attr(feature = "ser", serde(skip))]
     pub scheduled: Option<Timestamp<'a>>,
     /// Timestamp associated to closed keyword
-    #[cfg_attr(feature = "ser", serde(skip_serializing_if = "Option::is_none"))]
+    #[cfg_attr(feature = "ser", serde(skip))]
     pub closed: Option<Timestamp<'a>>,
 }
 

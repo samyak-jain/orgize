@@ -8,15 +8,14 @@ use nom::{
 use crate::parse::combinators::{blank_lines_count, line, lines_while};
 
 /// Table Element
-#[derive(Debug, Clone)]
-#[cfg_attr(test, derive(PartialEq))]
-#[cfg_attr(feature = "ser", derive(serde::Serialize))]
+#[derive(Debug, Clone, PartialEq)]
+#[cfg_attr(feature = "ser", derive(serde::Serialize, serde::Deserialize))]
 #[cfg_attr(feature = "ser", serde(tag = "table_type"))]
 pub enum Table<'a> {
     /// "org" type table
     #[cfg_attr(feature = "ser", serde(rename = "org"))]
     Org {
-        #[cfg_attr(feature = "ser", serde(skip_serializing_if = "Option::is_none"))]
+        #[cfg_attr(feature = "ser", serde(skip))]
         tblfm: Option<Cow<'a, str>>,
         /// Numbers of blank lines between last table's line and next non-blank
         /// line or buffer's end
@@ -113,9 +112,8 @@ impl Table<'_> {
 /// |-----+-----+-----| <- ignores
 /// ```
 ///
-#[derive(Debug, Clone)]
-#[cfg_attr(test, derive(PartialEq))]
-#[cfg_attr(feature = "ser", derive(serde::Serialize))]
+#[derive(Debug, Clone, PartialEq)]
+#[cfg_attr(feature = "ser", derive(serde::Serialize, serde::Deserialize))]
 #[cfg_attr(feature = "ser", serde(tag = "table_row_type"))]
 #[cfg_attr(feature = "ser", serde(rename_all = "kebab-case"))]
 pub enum TableRow {
@@ -130,9 +128,8 @@ pub enum TableRow {
 }
 
 /// Table Cell Element
-#[derive(Debug, Clone)]
-#[cfg_attr(test, derive(PartialEq))]
-#[cfg_attr(feature = "ser", derive(serde::Serialize))]
+#[derive(Debug, Clone, PartialEq)]
+#[cfg_attr(feature = "ser", derive(serde::Serialize, serde::Deserialize))]
 #[cfg_attr(feature = "ser", serde(tag = "table_cell_type"))]
 #[cfg_attr(feature = "ser", serde(rename_all = "kebab-case"))]
 pub enum TableCell {

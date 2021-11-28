@@ -9,9 +9,10 @@ use crate::{
     parsers::{blank_lines_count, parse_container, Container, OwnedArena},
 };
 
+#[derive(Serialize, Deserialize)]
 pub struct Org<'a> {
-    pub(crate) arena: Arena<Element<'a>>,
-    pub(crate) root: NodeId,
+    pub arena: Arena<Element<'a>>,
+    pub root: NodeId,
 }
 
 #[derive(Debug)]
@@ -181,13 +182,23 @@ impl<'a> IndexMut<NodeId> for Org<'a> {
 }
 
 #[cfg(feature = "ser")]
-use serde::{ser::Serializer, Serialize};
+use serde::{ser::Serializer, Deserialize, Serialize};
 
-#[cfg(feature = "ser")]
-impl Serialize for Org<'_> {
-    fn serialize<S: Serializer>(&self, serializer: S) -> Result<S::Ok, S::Error> {
-        use serde_indextree::Node;
-
-        serializer.serialize_newtype_struct("Org", &Node::new(self.root, &self.arena))
-    }
-}
+// #[cfg(feature = "ser")]
+// impl Serialize for Org<'_> {
+//     fn serialize<S: Serializer>(&self, serializer: S) -> Result<S::Ok, S::Error> {
+//         use serde_indextree::Node;
+// 
+//         serializer.serialize_newtype_struct("Org", &Node::new(self.root, &self.arena))
+//     }
+// }
+// 
+// #[cfg(feature = "ser")]
+// impl<'de> Deserialize<'de> for Org<'_> {
+//     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
+//     where
+//         D: serde::Deserializer<'de>,
+//     {
+//         Deserialize::deserialize(deserializer).map(Org)
+//     }
+// }

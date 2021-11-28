@@ -2,9 +2,8 @@ use nom::{bytes::complete::take_while_m_n, character::complete::space0, IResult}
 
 use crate::parse::combinators::{blank_lines_count, eol};
 
-#[derive(Debug, Default, Clone)]
-#[cfg_attr(test, derive(PartialEq))]
-#[cfg_attr(feature = "ser", derive(serde::Serialize))]
+#[derive(Debug, Default, Clone, PartialEq)]
+#[cfg_attr(feature = "ser", derive(serde::Serialize, serde::Deserialize))]
 pub struct Rule {
     /// Numbers of blank lines between rule line and next non-blank line or
     /// buffer's end

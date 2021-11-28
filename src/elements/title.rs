@@ -22,30 +22,29 @@ use crate::{
 };
 
 /// Title Element
-#[cfg_attr(test, derive(PartialEq))]
-#[cfg_attr(feature = "ser", derive(serde::Serialize))]
-#[derive(Debug, Clone)]
+#[cfg_attr(feature = "ser", derive(serde::Serialize, serde::Deserialize))]
+#[derive(Debug, Clone, PartialEq)]
 pub struct Title<'a> {
     /// Headline level, number of stars
     pub level: usize,
     /// Headline priority cookie
-    #[cfg_attr(feature = "ser", serde(skip_serializing_if = "Option::is_none"))]
+    #[cfg_attr(feature = "ser", serde(skip))]
     pub priority: Option<char>,
     /// Headline title tags
-    #[cfg_attr(feature = "ser", serde(skip_serializing_if = "Vec::is_empty"))]
+    #[cfg_attr(feature = "ser", serde(skip))]
     pub tags: Vec<Cow<'a, str>>,
     /// Headline todo keyword
-    #[cfg_attr(feature = "ser", serde(skip_serializing_if = "Option::is_none"))]
+    #[cfg_attr(feature = "ser", serde(skip))]
     pub keyword: Option<Cow<'a, str>>,
     /// Raw headline's text, without the stars and the tags
     pub raw: Cow<'a, str>,
     /// Planning element associated to this headline
-    #[cfg_attr(feature = "ser", serde(skip_serializing_if = "Option::is_none"))]
+    #[cfg_attr(feature = "ser", serde(skip))]
     pub planning: Option<Box<Planning<'a>>>,
     /// Property drawer associated to this headline
     #[cfg_attr(
         feature = "ser",
-        serde(skip_serializing_if = "PropertiesMap::is_empty")
+        serde(skip)
     )]
     pub properties: PropertiesMap<'a>,
     /// Numbers of blank lines between last title's line and next non-blank line
@@ -126,7 +125,7 @@ impl Default for Title<'_> {
 /// Properties
 #[derive(Default, Debug, Clone)]
 #[cfg_attr(test, derive(PartialEq))]
-#[cfg_attr(feature = "ser", derive(serde::Serialize))]
+#[cfg_attr(feature = "ser", derive(serde::Serialize, serde::Deserialize))]
 pub struct PropertiesMap<'a> {
     pub pairs: Vec<(Cow<'a, str>, Cow<'a, str>)>,
 }

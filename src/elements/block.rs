@@ -11,12 +11,11 @@ use crate::elements::Element;
 use crate::parse::combinators::{blank_lines_count, line, lines_till};
 
 /// Special Block Element
-#[derive(Debug, Clone)]
-#[cfg_attr(test, derive(PartialEq))]
-#[cfg_attr(feature = "ser", derive(serde::Serialize))]
+#[derive(Debug, Clone, PartialEq)]
+#[cfg_attr(feature = "ser", derive(serde::Serialize, serde::Deserialize))]
 pub struct SpecialBlock<'a> {
     /// Block parameters
-    #[cfg_attr(feature = "ser", serde(skip_serializing_if = "Option::is_none"))]
+    #[cfg_attr(feature = "ser", serde(skip))]
     pub parameters: Option<Cow<'a, str>>,
     /// Block name
     pub name: Cow<'a, str>,
@@ -40,12 +39,11 @@ impl SpecialBlock<'_> {
 }
 
 /// Quote Block Element
-#[derive(Debug, Clone)]
-#[cfg_attr(test, derive(PartialEq))]
-#[cfg_attr(feature = "ser", derive(serde::Serialize))]
+#[derive(Debug, Clone, PartialEq)]
+#[cfg_attr(feature = "ser", derive(serde::Serialize, serde::Deserialize))]
 pub struct QuoteBlock<'a> {
     /// Optional block parameters
-    #[cfg_attr(feature = "ser", serde(skip_serializing_if = "Option::is_none"))]
+    #[cfg_attr(feature = "ser", serde(skip))]
     pub parameters: Option<Cow<'a, str>>,
     /// Numbers of blank lines between first block's line and next non-blank
     /// line
@@ -66,12 +64,11 @@ impl QuoteBlock<'_> {
 }
 
 /// Center Block Element
-#[derive(Debug, Clone)]
-#[cfg_attr(test, derive(PartialEq))]
-#[cfg_attr(feature = "ser", derive(serde::Serialize))]
+#[derive(Debug, Clone, PartialEq)]
+#[cfg_attr(feature = "ser", derive(serde::Serialize, serde::Deserialize))]
 pub struct CenterBlock<'a> {
     /// Optional block parameters
-    #[cfg_attr(feature = "ser", serde(skip_serializing_if = "Option::is_none"))]
+    #[cfg_attr(feature = "ser", serde(skip))]
     pub parameters: Option<Cow<'a, str>>,
     /// Numbers of blank lines between first block's line and next non-blank
     /// line
@@ -92,12 +89,11 @@ impl CenterBlock<'_> {
 }
 
 /// Verse Block Element
-#[derive(Debug, Clone)]
-#[cfg_attr(test, derive(PartialEq))]
-#[cfg_attr(feature = "ser", derive(serde::Serialize))]
+#[derive(Debug, Clone, PartialEq)]
+#[cfg_attr(feature = "ser", derive(serde::Serialize, serde::Deserialize))]
 pub struct VerseBlock<'a> {
     /// Optional block parameters
-    #[cfg_attr(feature = "ser", serde(skip_serializing_if = "Option::is_none"))]
+    #[cfg_attr(feature = "ser", serde(skip))]
     pub parameters: Option<Cow<'a, str>>,
     /// Numbers of blank lines between first block's line and next non-blank
     /// line
@@ -118,11 +114,10 @@ impl VerseBlock<'_> {
 }
 
 /// Comment Block Element
-#[derive(Debug, Clone)]
-#[cfg_attr(test, derive(PartialEq))]
-#[cfg_attr(feature = "ser", derive(serde::Serialize))]
+#[derive(Debug, Clone, PartialEq)]
+#[cfg_attr(feature = "ser", derive(serde::Serialize, serde::Deserialize))]
 pub struct CommentBlock<'a> {
-    #[cfg_attr(feature = "ser", serde(skip_serializing_if = "Option::is_none"))]
+    #[cfg_attr(feature = "ser", serde(skip))]
     pub data: Option<Cow<'a, str>>,
     /// Comment block contents
     pub contents: Cow<'a, str>,
@@ -142,11 +137,10 @@ impl CommentBlock<'_> {
 }
 
 /// Example Block Element
-#[derive(Debug, Clone)]
-#[cfg_attr(test, derive(PartialEq))]
-#[cfg_attr(feature = "ser", derive(serde::Serialize))]
+#[derive(Debug, Clone, PartialEq)]
+#[cfg_attr(feature = "ser", derive(serde::Serialize, serde::Deserialize))]
 pub struct ExampleBlock<'a> {
-    #[cfg_attr(feature = "ser", serde(skip_serializing_if = "Option::is_none"))]
+    #[cfg_attr(feature = "ser", serde(skip))]
     pub data: Option<Cow<'a, str>>,
     ///  Block contents
     pub contents: Cow<'a, str>,
@@ -166,9 +160,8 @@ impl ExampleBlock<'_> {
 }
 
 /// Export Block Element
-#[derive(Debug, Clone)]
-#[cfg_attr(test, derive(PartialEq))]
-#[cfg_attr(feature = "ser", derive(serde::Serialize))]
+#[derive(Debug, Clone, PartialEq)]
+#[cfg_attr(feature = "ser", derive(serde::Serialize, serde::Deserialize))]
 pub struct ExportBlock<'a> {
     pub data: Cow<'a, str>,
     ///  Block contents
@@ -189,9 +182,8 @@ impl ExportBlock<'_> {
 }
 
 /// Src Block Element
-#[derive(Debug, Default, Clone)]
-#[cfg_attr(test, derive(PartialEq))]
-#[cfg_attr(feature = "ser", derive(serde::Serialize))]
+#[derive(Debug, Default, Clone, PartialEq)]
+#[cfg_attr(feature = "ser", derive(serde::Serialize, serde::Deserialize))]
 pub struct SourceBlock<'a> {
     ///  Block contents
     pub contents: Cow<'a, str>,

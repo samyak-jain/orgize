@@ -10,16 +10,16 @@ use nom::{
 
 /// Datetime Struct
 #[cfg_attr(test, derive(PartialEq))]
-#[cfg_attr(feature = "ser", derive(serde::Serialize))]
+#[cfg_attr(feature = "ser", derive(serde::Serialize, serde::Deserialize))]
 #[derive(Debug, Clone)]
 pub struct Datetime<'a> {
     pub year: u16,
     pub month: u8,
     pub day: u8,
     pub dayname: Cow<'a, str>,
-    #[cfg_attr(feature = "ser", serde(skip_serializing_if = "Option::is_none"))]
+    #[cfg_attr(feature = "ser", serde(skip))]
     pub hour: Option<u8>,
-    #[cfg_attr(feature = "ser", serde(skip_serializing_if = "Option::is_none"))]
+    #[cfg_attr(feature = "ser", serde(skip))]
     pub minute: Option<u8>,
 }
 
@@ -95,40 +95,39 @@ mod chrono {
 }
 
 /// Timestamp Object
-#[cfg_attr(test, derive(PartialEq))]
-#[cfg_attr(feature = "ser", derive(serde::Serialize))]
+#[cfg_attr(feature = "ser", derive(serde::Serialize, serde::Deserialize))]
 #[cfg_attr(feature = "ser", serde(rename_all = "kebab-case"))]
 #[cfg_attr(feature = "ser", serde(tag = "timestamp_type"))]
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, PartialEq)]
 pub enum Timestamp<'a> {
     Active {
         start: Datetime<'a>,
-        #[cfg_attr(feature = "ser", serde(skip_serializing_if = "Option::is_none"))]
+        #[cfg_attr(feature = "ser", serde(skip))]
         repeater: Option<Cow<'a, str>>,
-        #[cfg_attr(feature = "ser", serde(skip_serializing_if = "Option::is_none"))]
+        #[cfg_attr(feature = "ser", serde(skip))]
         delay: Option<Cow<'a, str>>,
     },
     Inactive {
         start: Datetime<'a>,
-        #[cfg_attr(feature = "ser", serde(skip_serializing_if = "Option::is_none"))]
+        #[cfg_attr(feature = "ser", serde(skip))]
         repeater: Option<Cow<'a, str>>,
-        #[cfg_attr(feature = "ser", serde(skip_serializing_if = "Option::is_none"))]
+        #[cfg_attr(feature = "ser", serde(skip))]
         delay: Option<Cow<'a, str>>,
     },
     ActiveRange {
         start: Datetime<'a>,
         end: Datetime<'a>,
-        #[cfg_attr(feature = "ser", serde(skip_serializing_if = "Option::is_none"))]
+        #[cfg_attr(feature = "ser", serde(skip))]
         repeater: Option<Cow<'a, str>>,
-        #[cfg_attr(feature = "ser", serde(skip_serializing_if = "Option::is_none"))]
+        #[cfg_attr(feature = "ser", serde(skip))]
         delay: Option<Cow<'a, str>>,
     },
     InactiveRange {
         start: Datetime<'a>,
         end: Datetime<'a>,
-        #[cfg_attr(feature = "ser", serde(skip_serializing_if = "Option::is_none"))]
+        #[cfg_attr(feature = "ser", serde(skip))]
         repeater: Option<Cow<'a, str>>,
-        #[cfg_attr(feature = "ser", serde(skip_serializing_if = "Option::is_none"))]
+        #[cfg_attr(feature = "ser", serde(skip))]
         delay: Option<Cow<'a, str>>,
     },
     Diary {
@@ -362,7 +361,7 @@ fn parse_datetime(input: &str) -> IResult<&str, Datetime, ()> {
 
 // TODO
 // #[cfg_attr(test, derive(PartialEq))]
-// #[cfg_attr(feature = "ser", derive(serde::Serialize))]
+// #[cfg_attr(feature = "ser", derive(serde::Serialize, serde::Deserialize))]
 // #[derive(Debug, Copy, Clone)]
 // pub enum RepeaterType {
 //     Cumulate,
@@ -371,7 +370,7 @@ fn parse_datetime(input: &str) -> IResult<&str, Datetime, ()> {
 // }
 
 // #[cfg_attr(test, derive(PartialEq))]
-// #[cfg_attr(feature = "ser", derive(serde::Serialize))]
+// #[cfg_attr(feature = "ser", derive(serde::Serialize, serde::Deserialize))]
 // #[derive(Debug, Copy, Clone)]
 // pub enum DelayType {
 //     All,
@@ -379,7 +378,7 @@ fn parse_datetime(input: &str) -> IResult<&str, Datetime, ()> {
 // }
 
 // #[cfg_attr(test, derive(PartialEq))]
-// #[cfg_attr(feature = "ser", derive(serde::Serialize))]
+// #[cfg_attr(feature = "ser", derive(serde::Serialize, serde::Deserialize))]
 // #[derive(Debug, Copy, Clone)]
 // pub enum TimeUnit {
 //     Hour,
@@ -390,7 +389,7 @@ fn parse_datetime(input: &str) -> IResult<&str, Datetime, ()> {
 // }
 
 // #[cfg_attr(test, derive(PartialEq))]
-// #[cfg_attr(feature = "ser", derive(serde::Serialize))]
+// #[cfg_attr(feature = "ser", derive(serde::Serialize, serde::Deserialize))]
 // #[derive(Debug, Copy, Clone)]
 // pub struct Repeater {
 //     pub ty: RepeaterType,
@@ -399,7 +398,7 @@ fn parse_datetime(input: &str) -> IResult<&str, Datetime, ()> {
 // }
 
 // #[cfg_attr(test, derive(PartialEq))]
-// #[cfg_attr(feature = "ser", derive(serde::Serialize))]
+// #[cfg_attr(feature = "ser", derive(serde::Serialize, serde::Deserialize))]
 // #[derive(Debug, Copy, Clone)]
 // pub struct Delay {
 //     pub ty: DelayType,

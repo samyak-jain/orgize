@@ -31,7 +31,7 @@ ser = ["serde", "serde_indextree", "indexmap/serde-1"]
 [dependencies]
 bytecount = "0.6"
 chrono = { version = "0.4", optional = true }
-indextree = "4.3"
+indextree = { version = "4.3", features = ["deser"] }
 jetscii = "0.5"
 lazy_static = "1.4"
 memchr = "2.4"
